@@ -4,18 +4,21 @@ import { TProduct} from "./product.interface";
 const productSchema = new Schema<TProduct>({
   title: {
     type: String,
-    trim: true,
     required: true,
   },
   category: {
-    type: Schema.Types.ObjectId,
+    type: String,
     required: true
   },
-  image: {
-    type: String,
+  images: {
+    type: [String],
     trim: true,
   },
-  price: {
+  oldPrice: {
+    type: Number,
+    trim: true
+  },
+  currentPrice: {
     type: Number,
     trim: true,
     required: true,
@@ -28,6 +31,9 @@ const productSchema = new Schema<TProduct>({
     type: Boolean,
     default: false
   },
+  description: {
+    type: String
+  },
   rating: {
     type: Number
   },
@@ -35,7 +41,7 @@ const productSchema = new Schema<TProduct>({
     type: Boolean,
     default: false,
   },
-});
+}, {timestamps: true});
 
 
 

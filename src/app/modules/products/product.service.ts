@@ -14,15 +14,15 @@ const createProductIntoDB = async (payload: TProduct) => {
 
 // GET ALL COURSES
 const getAllProductsFromDB = async (query: Record<string, unknown>) => {
-  const courseQuery = new QueryBuilder(
-    Product.find().populate('preRequisiteProducts.course'),
+  const productQuery = new QueryBuilder(
+    Product.find(),
     query,
   )
     .search(productSearchableFields)
     .filter()
     .sort()
     .fields();
-  const result = await courseQuery.modelQuery;
+  const result = await productQuery.modelQuery;
 
   return result;
 };

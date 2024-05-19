@@ -1,10 +1,11 @@
-import {ObjectId} from "mongoose";
+
 
 export type TProduct = {
   title: string;
-  category: ObjectId;
-  image: string;
-  price: number;
+  category: string;
+  images: string[];
+  oldPrice?: number;
+  currentPrice?: number;
   isFlashSale?: boolean;
   isTrending?: boolean;
   rating?: number;
